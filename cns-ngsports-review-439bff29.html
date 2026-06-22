@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>活力视野 · ng体育 · 运动与日常的交汇点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f5f9fc;
+            color: #1a2f3b;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 0 60px 0;
+        }
+
+        /* 主视觉区域 – 柔和卡片叠层 */
+        .hero {
+            background: linear-gradient(135deg, #dbeef3 0%, #e2f3f0 70%, #f0f9f7 100%);
+            border-radius: 40px;
+            padding: 40px 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 28px -12px rgba(0, 90, 80, 0.12);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .hero-text {
+            flex: 2 1 280px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0e4b4a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #1d4a4e;
+            max-width: 540px;
+            margin-bottom: 12px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #1e7e7a;
+            color: white;
+            font-size: 0.8rem;
+            padding: 6px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-top: 8px;
+        }
+
+        .hero-illustration {
+            flex: 1 1 160px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 24px 16px;
+            border-radius: 32px;
+            backdrop-filter: blur(4px);
+            font-size: 2.8rem;
+            line-height: 1;
+            border: 1px solid rgba(30, 126, 122, 0.2);
+        }
+
+        .hero-illustration span {
+            display: block;
+            font-size: 0.95rem;
+            color: #1b5b58;
+            margin-top: 12px;
+            font-weight: 400;
+        }
+
+        /* 信息网格卡片 —— 蓝绿色点缀 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 22px;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 70, 70, 0.04);
+            transition: all 0.2s ease;
+            border: 1px solid #e2f0ef;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: #2d9c96;
+            box-shadow: 0 12px 26px -8px rgba(21, 115, 110, 0.10);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0e4b4a;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #2a4c4d;
+            font-size: 0.96rem;
+            margin-top: 4px;
+            flex: 1;
+        }
+
+        .card .tag {
+            background: #e3f3f0;
+            color: #1a625f;
+            align-self: flex-start;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        /* 适合人群 – 横向标签组 */
+        .audience-section {
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            padding: 32px 28px;
+            border-radius: 40px;
+            margin: 40px 0;
+            border: 1px solid #c8e2de;
+        }
+
+        .audience-section h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #0f4a48;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+        }
+
+        .audience-tag {
+            background: #edf7f5;
+            padding: 8px 22px;
+            border-radius: 60px;
+            color: #144f4b;
+            font-size: 0.95rem;
+            border: 1px solid #bcd9d4;
+            transition: 0.1s ease;
+        }
+
+        .audience-tag:hover {
+            background: #cde9e4;
+            border-color: #359f96;
+        }
+
+        /* 自然链接段落 + 补充说明 */
+        .link-paragraph {
+            background: #f0f8f6;
+            padding: 28px 28px;
+            border-radius: 40px;
+            margin: 40px 0 30px;
+            font-size: 1.02rem;
+            color: #1d4141;
+            border-left: 6px solid #2b9b93;
+        }
+
+        .link-paragraph a {
+            color: #10645e;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #3fa9a0;
+            transition: border 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            border-bottom: 2px solid #0f7f76;
+        }
+
+        /* FAQ 摘要 — 紧凑风格 */
+        .faq-mini {
+            margin: 40px 0 20px;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #0f4a48;
+            margin-bottom: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+            border: 1px solid #d9ece8;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 6px 12px;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #10534e;
+            min-width: 75px;
+        }
+
+        .faq-a {
+            color: #2b5654;
+            flex: 1;
+        }
+
+        .faq-a a {
+            color: #0d7a6f;
+            text-decoration: none;
+            border-bottom: 1px dotted #389f94;
+        }
+
+        .faq-a a:hover {
+            border-bottom: 2px solid #1d897d;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #c4ddd7;
+            margin: 40px 0 20px;
+            opacity: 0.5;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a7c77;
+            padding: 20px 0 10px;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 28px 20px;
+                border-radius: 28px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.7rem;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .audience-section {
+                padding: 24px 18px;
+            }
+
+            .faq-item {
+                padding: 14px 18px;
+            }
+
+            .hero-illustration {
+                padding: 18px 12px;
+                font-size: 2.4rem;
+            }
+
+            .link-paragraph {
+                padding: 22px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 主视觉 Hero -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>运动日常，<br>有节奏也有温度</h1>
+            <p>不论在赛场上挥洒汗水，还是在屏幕前为热爱喝彩——体育的魅力从来不只一种打开方式。</p>
+            <div class="hero-badge">⚡ 话题 · 资讯 · 社区氛围</div>
+        </div>
+        <div class="hero-illustration">
+            ⚽🏀🎾
+            <span>共享运动信号</span>
+        </div>
+    </div>
+
+    <!-- 用途卡片网格 信息卡片式 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon">📰</div>
+            <h3>赛事速递 & 解读</h3>
+            <p>从五大联赛到新兴项目，提炼关键信息，不错过重要瞬间。适合关注赛程、转会、战术分析的朋友。</p>
+            <div class="tag">实时更新</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧘</div>
+            <h3>日常训练灵感</h3>
+            <p>居家跟练、跑步入门、拉伸放松…… 回归身体感受，运动不必追求极限，适合自己才长久。</p>
+            <div class="tag">轻松向</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎧</div>
+            <h3>观点 & 氛围</h3>
+            <p>球迷故事、运动穿搭、赛事周边的讨论——体育也是一种生活语言，连接不同的人与想法。</p>
+            <div class="tag">开放交流</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌱</div>
+            <h3>入门与进阶</h3>
+            <p>无论刚接触运动，还是想尝试新玩法，都能找到匹配的内容和视角，循序渐进养成习惯。</p>
+            <div class="tag">包容多元</div>
+        </div>
+    </div>
+
+    <!-- 适合人群 标签式 -->
+    <div class="audience-section">
+        <h2>👥 这些朋友经常在这里停留</h2>
+        <div class="audience-tags">
+            <span class="audience-tag">🏃 跑步与健身爱好者</span>
+            <span class="audience-tag">⚽ 团队项目迷</span>
+            <span class="audience-tag">🎯 新运动尝鲜者</span>
+            <span class="audience-tag">📱 体育资讯控</span>
+            <span class="audience-tag">🧑‍🏫 教练/体育老师</span>
+            <span class="audience-tag">💬 爱聊比赛的球迷</span>
+        </div>
+        <p style="margin-top: 24px; color: #1f5853; font-size: 0.96rem;">不论资深还是好奇，都能在这里找到属于自己的运动语境。</p>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 ng体育) -->
+    <div class="link-paragraph">
+        <p style="margin-bottom: 8px;">🔍 如果你正在寻找一个可以轻松浏览体育资讯、了解不同运动文化的地方，不妨留意一下 <a href="https://cns-ngsports.com">ng体育</a>。它围绕体育内容展开，兼顾深度与日常感，没有过度包装，呈现的是真实的话题和氛围。适合在零碎时间里安静翻阅，也适合和同好一起讨论。</p>
+        <p style="margin-top: 16px; font-size: 0.95rem; color: #1b605b;">从赛事简报到运动生活随笔，内容调性偏向温和、务实，不会刻意制造焦虑。页面干净，节奏自己把握就好。</p>
+    </div>
+
+    <!-- FAQ 摘要 (轻量) -->
+    <div class="faq-mini">
+        <h2>❓ 一些你可能好奇的</h2>
+        <div class="faq-item">
+            <span class="faq-q">内容风格？</span>
+            <span class="faq-a">以体育为主线，涵盖赛事、训练、观点、文化等，语气平实，不浮夸。适合日常阅读。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">更新频率？</span>
+            <span class="faq-a">保持稳定的内容输出，既有热点也有长尾话题，不会过度刷屏。更多细节可前往 <a href="https://cns-ngsports.com">ng体育</a> 感受。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">适合完全新手吗？</span>
+            <span class="faq-a">当然。很多内容从基础视角切入，用语易懂，没有门槛。即使刚开始关注体育也能跟得上。</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <span>以运动连接日常 · 温和而持续</span>
+    </div>
+
+</div>
+</body>
+</html>
